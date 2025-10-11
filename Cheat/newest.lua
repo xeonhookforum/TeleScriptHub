@@ -14,7 +14,7 @@ end)()
 local Notif = library:InitNotifications()
 
 
-local LoadingXSX = Notif:Notify("Loading XEploit, please be patient.", 10, "information") -- notification, alert, error, success, information
+local LoadingXSX = Notif:Notify("Loading XEploit, please be patient.", 7, "information") -- notification, alert, error, success, information
 
 
 library.title = "XEploit"
@@ -28,15 +28,25 @@ local Tab1 = Init:NewTab("Basic")
 local Section1 = Tab1:NewSection("A")
 
 
-local Label1 = Tab1:NewLabel("A", "center")--"left", "center", "right"
+local Label1 = Tab1:NewLabel("TooBasic", "center")--"left", "center", "right"
 
-local Slider1 = Tab1:NewSlider("Walkspeed", "", true, "/", {min = 1, max = 100, default = 20}, function(value)
+local Slider1 = Tab1:NewSlider("Walkspeed", "", true, "/", {min = 1, max = 100, default = 16}, function(value)
     game:GetService("Players")
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
 end)
 
+local Slider2 = Tab1:NewSlider("Jumppower", "", true, "/", {min = 1, max = 100, default = 24}, function (vaule)
+    game:GetService("Players")
+    game.Players.LocalPlayer.Character.Humanoid.Jumppower = value
+end)
 
-local Button1 = Tab1:NewButton("Rejoin / Panic button", function()
+local Label2 Tab1:NewLabel("Buttons")
+
+local DeX = Tab1:NewButton("DeX Load", function ()
+    loadstring(game:HttpGet("https://gist.githubusercontent.com/dannythehacker/1781582ab545302f2b34afc4ec53e811/raw/ee5324771f017073fc30e640323ac2a9b3bfc550/dark%2520dex%2520v4"))()
+end)
+
+local Rejoin = Tab1:NewButton("Rejoin / Panic button", function()
     local TeleportService = game:GetService("TeleportService")
     local Players = game:GetService("Players")
     local player = Players.LocalPlayer
