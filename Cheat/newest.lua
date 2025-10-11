@@ -16,17 +16,6 @@ local Notif = library:InitNotifications()
 
 local LoadingXSX = Notif:Notify("Loading XEploit, please be patient.", 7, "information") -- notification, alert, error, success, information
 
-print('''
-
-                                                           
-,--.   ,--.,------.,------. ,--.    ,-----. ,--.,--------. 
- \  `.'  / |  .---'|  .--. '|  |   '  .-.  '|  |'--.  .--' 
-  .'    \  |  `--, |  '--' ||  |   |  | |  ||  |   |  |    
- /  .'.  \ |  `---.|  | --' |  '--.'  '-'  '|  |   |  |    
-'--'   '--'`------'`--'     `-----' `-----' `--'   `--'    
-                                                          
-
-''')
 
 
 library.title = "XEploit"
@@ -36,9 +25,8 @@ wait(1)
 local Init = library:Init()
 
 local Tab1 = Init:NewTab("Basic")
-
+-- basic
 local Section1 = Tab1:NewSection("A")
-
 
 local Label1 = Tab1:NewLabel("TooBasic", "center")--"left", "center", "right"
 
@@ -54,11 +42,7 @@ end)
 
 local Label2 Tab1:NewLabel("Buttons")
 
-local DeX = Tab1:NewButton("DeX Load", function ()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/peyton2465/Dex/master/out.lua"))()
-end)
-
-local Rejoin = Tab1:NewButton("Rejoin / Panic button", function()
+local Rejoin = Tab1:NewButton("Rejoin", function()
     local TeleportService = game:GetService("TeleportService")
     local Players = game:GetService("Players")
     local player = Players.LocalPlayer
@@ -75,6 +59,13 @@ local Rejoin = Tab1:NewButton("Rejoin / Panic button", function()
     end
 end)
 
+-- scripts
+
+local Scripts = Init:NewTab("Scripts")
+
+local DeX = Scripts:NewButton("DeX Load", function ()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/peyton2465/Dex/master/out.lua"))()
+end)
 
 local FinishedLoading = Notif:Notify("Loaded XEploit", 4, "success")
 
