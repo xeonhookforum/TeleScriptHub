@@ -16,6 +16,18 @@ local Notif = library:InitNotifications()
 
 local LoadingXSX = Notif:Notify("Loading XEploit, please be patient.", 7, "information") -- notification, alert, error, success, information
 
+print('''
+
+                                                           
+,--.   ,--.,------.,------. ,--.    ,-----. ,--.,--------. 
+ \  `.'  / |  .---'|  .--. '|  |   '  .-.  '|  |'--.  .--' 
+  .'    \  |  `--, |  '--' ||  |   |  | |  ||  |   |  |    
+ /  .'.  \ |  `---.|  | --' |  '--.'  '-'  '|  |   |  |    
+'--'   '--'`------'`--'     `-----' `-----' `--'   `--'    
+                                                          
+
+''')
+
 
 library.title = "XEploit"
 
@@ -43,7 +55,7 @@ end)
 local Label2 Tab1:NewLabel("Buttons")
 
 local DeX = Tab1:NewButton("DeX Load", function ()
-    loadstring(game:HttpGet("https://gist.githubusercontent.com/dannythehacker/1781582ab545302f2b34afc4ec53e811/raw/ee5324771f017073fc30e640323ac2a9b3bfc550/dark%2520dex%2520v4"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/peyton2465/Dex/master/out.lua"))()
 end)
 
 local Rejoin = Tab1:NewButton("Rejoin / Panic button", function()
