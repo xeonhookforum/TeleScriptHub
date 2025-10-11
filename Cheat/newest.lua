@@ -38,7 +38,20 @@ end)
 
 
 local Button1 = Tab1:NewButton("Rejoin / Panic button", function()
-    library:Rejoin()
+    local TeleportService = game:GetService("TeleportService")
+    local Players = game:GetService("Players")
+    local player = Players.LocalPlayer
+
+    local placeId = game.PlaceId
+    local jobId = game.JobId
+
+    local success, err = pcall(function()
+        TeleportService:TeleportToPlaceInstance(placeId, jobId, player)
+    end)
+
+    if not success then
+        TeleportService:Teleport(placeId, player)
+    end
 end)
 
 
