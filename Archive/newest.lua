@@ -35,10 +35,9 @@ local Slider1 = Tab1:NewSlider("Walkspeed", "", true, "/", {min = 1, max = 100, 
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
 end)
 
-local Slider2 = Tab1:NewSlider("Jumppower", "", true, "/", {min = 1, max = 100, default = 24}, function (vaule)
-    game:GetService("Players")
-    game.Players.LocalPlayer.Character.Humanoid.Jumppower = value
-end)
+local ESPBasic = Tab1:NewLabel("ESP Basic", "center")
+
+local ESPBoxAndName = Tab1:NewToggle()
 
 local Label2 Tab1:NewLabel("Buttons")
 
