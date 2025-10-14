@@ -21,10 +21,10 @@ local Window = Library:CreateWindow({
 Library:Notify("Script Executed", 5, 103750838557977)
 
 -- code here
-local Tabs = {
-    Main = Window:AddTab("Main", "user"),
-    ["UI Settings"] = Window:AddTab("UI Settings", "settings"),
-}
+local MainTab = Window:AddTab("Main", "tool-case")
+MainTab:SetVisible(boolean)
+local ScriptsTab = Window:AddTab("Scripts", "scroll-text")
+ScriptsTab:SetVisible(boolean)
 
 
 --code end
