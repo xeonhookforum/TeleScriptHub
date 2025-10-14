@@ -14,7 +14,7 @@ Library.ShowToggleFrameInKeybinds = true
 local Window = Library:CreateWindow({
     Title = "XExploit",
     Footer = "version: beta-dev nigger",
-    Icon = "bug",
+    Icon = 7562374862,
     NotifySide = "Right",
 })
 
