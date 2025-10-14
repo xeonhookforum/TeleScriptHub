@@ -78,11 +78,6 @@ MainTabRight:AddInput("JumpPower Value", {
 	end,
 })
 
-local JumpPowerToggle = MainTabLeft:AddToggle("MyToggle", {
-    Text = "JumpPower Changer",
-    Default = false,
-})
-
 WalkSpeedToggle:OnChanged(function(state)
     print("Toggle state changed to " .. tostring(state))
 end)
