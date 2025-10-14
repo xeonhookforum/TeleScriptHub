@@ -18,6 +18,8 @@ local Window = Library:CreateWindow({
     NotifySide = "Right",
 })
 
+Library:Notify("Script Executed", 5, 103750838557977)
+
 -- code here
 
 
