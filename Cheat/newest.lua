@@ -34,7 +34,7 @@ local MainTabLeft = MainTab:AddLeftGroupbox("Left Groupbox", "cog")
 local MainTabRight = MainTab:AddRightGroupbox("Right Groupbox", "wrench")
 local walkSpeedEnabled = false
 local jumpPowerEnabled = false
-local WalkSpeedToggle = MainTabLeft:AddToggle("MyToggle", {
+local WalkSpeedToggle = MainTabLeft:AddToggle("WalkSpeed", {
     Text = "WalkSpeed Changer",
     Default = false,
     Callback = function(state)
@@ -42,8 +42,18 @@ local WalkSpeedToggle = MainTabLeft:AddToggle("MyToggle", {
 	end
 })
 
+local JumpPowerToggle = MainTabLeft:AddToggle("JumpPower", {
+    Text = "JumpPower Changer",
+    Default = false,
+    Callback = function(state)
+		JumpPower = state
+	end
+})
+
+
+
 MainTabRight:AddInput("WalkSpeed Value", {
-	Default = "16",
+	Default = "0",
 	Numeric = true,
 	Finished = true,
 	Text = "WalkSpeed",
@@ -55,8 +65,18 @@ MainTabRight:AddInput("WalkSpeed Value", {
 	end,
 })
 
-
-
+MainTabRight:AddInput("JumpPower Value", {
+	Default = "0",
+	Numeric = true,
+	Finished = true,
+	Text = "JumpPower",
+	Callback = function(Value)
+		if walkSpeedEnabled then
+            game:GetService("Players")
+			game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+		end
+	end,
+})
 
 local JumpPowerToggle = MainTabLeft:AddToggle("MyToggle", {
     Text = "JumpPower Changer",
