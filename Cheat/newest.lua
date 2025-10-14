@@ -21,10 +21,52 @@ local Window = Library:CreateWindow({
 Library:Notify("Script Executed", 5, 103750838557977)
 
 -- code here
-local MainTab = Window:AddTab("Main", "tool-case")
-MainTab:SetVisible(boolean)
-local ScriptsTab = Window:AddTab("Scripts", "scroll-text")
-ScriptsTab:SetVisible(boolean)
+
+MainTab = Window:AddTab("Main", "user")
+ScriptTab = Window:AddTab("Scripts", "scroll-text")
+
+TabSett = {
+["UI Settings"] = Window:AddTab("UI Settings", "settings")
+}
+
+--MainTab
+local MainTabLeft = MainTab:AddLeftGroupbox("Left Groupbox", "cog")
+local MainTabRight = MainTab:AddRightGroupbox("Right Groupbox", "wrench")
+local walkSpeedEnabled = false
+local jumpPowerEnabled = false
+local WalkSpeedToggle = MainTabLeft:AddToggle("MyToggle", {
+    Text = "WalkSpeed Changer",
+    Default = false,
+    Callback = function(state)
+		walkSpeedEnabled = state
+	end
+})
+
+MainTabRight:AddInput("WalkSpeed Value", {
+	Default = "16",
+	Numeric = true,
+	Finished = true,
+	Text = "WalkSpeed",
+	Callback = function(Value)
+		if walkSpeedEnabled then
+            game:GetService("Players")
+			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+		end
+	end,
+})
+
+
+
+
+local JumpPowerToggle = MainTabLeft:AddToggle("MyToggle", {
+    Text = "JumpPower Changer",
+    Default = false,
+})
+
+WalkSpeedToggle:OnChanged(function(state)
+    print("Toggle state changed to " .. tostring(state))
+end)
+
 
 
 --code end
@@ -56,11 +98,11 @@ SaveManager:SetSubFolder("specific-place") -- if the game has multiple places in
 -- [ This is optional ]
 
 -- Builds our config menu on the right side of our tab
-SaveManager:BuildConfigSection(Tabs["UI Settings"])
+SaveManager:BuildConfigSection(TabSett["UI Settings"])
 
 -- Builds our theme menu (with plenty of built in themes) on the left side
 -- NOTE: you can also call ThemeManager:ApplyToGroupbox to add it to a specific groupbox
-ThemeManager:ApplyToTab(Tabs["UI Settings"])
+ThemeManager:ApplyToTab(TabSett["UI Settings"])
 
 -- You can use the SaveManager:LoadAutoloadConfig() to load a config
 -- which has been marked to be one that auto loads!
