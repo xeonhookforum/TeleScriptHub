@@ -14,14 +14,17 @@ Library.ShowToggleFrameInKeybinds = true
 local Window = Library:CreateWindow({
     Title = "XExploit",
     Footer = "version: beta-dev nigger",
-    Icon = 136852272791029,
+    Icon = "bug",
     NotifySide = "Right",
 })
 
 Library:Notify("Script Executed", 5, 103750838557977)
 
 -- code here
-
+local Tabs = {
+    Main = Window:AddTab("Main", "user"),
+    ["UI Settings"] = Window:AddTab("UI Settings", "settings"),
+}
 
 
 --code end
