@@ -82,6 +82,34 @@ WalkSpeedToggle:OnChanged(function(state)
     print("Toggle state changed to " .. tostring(state))
 end)
 
+-- MainTabEnd
+-- ScriptTab
+local ScriptTabLeft = ScriptTab:AddLeftGroupbox("Scripts", "computer")
+local ScriptTabRight = ScriptTab:AddRightGroupbox("In-Script executor", "syringe")
+
+ScriptTabLeft:AddButton("Load DeX", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/peyton2465/Dex/master/out.lua"))()
+end)
+
+ScriptTabLeft:AddButton("Load Infinite yield", function()
+    loadstring(Game:HttpGet("https://raw.githubusercontent.com/edgeiy/infiniteyield/master/source"))()
+end)
+local script_execute = ""
+ScriptTabRight:AddInput("Script Code", { 
+	Callback = function(Value)
+		script_execute = Value
+	end,
+})
+
+ScriptTabLeft:AddButton("Execute custom code", function()
+    local func, err = loadstring(script_execute)
+    if func then
+        func()
+    else
+        warn("Error in code: " .. tostring(err))
+    end
+end)
+
 
 
 --code end
