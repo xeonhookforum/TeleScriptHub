@@ -104,8 +104,18 @@ ScriptTabRight:AddInput("Script Code", {
 ScriptTabLeft:AddButton("Execute custom code", function()
     local func, err = loadstring(script_execute)
     if func then
+		Library:Notify({
+			Title = "XExploit",
+			Description = "Script executed!",
+			Time = 1,
+		})
         func()
     else
+		Library:Notify({
+			Title = "XExploit",
+			Description = "Script fail to execute: " .. tostring(err),
+			Time = 1,
+		})
         warn("Error in code: " .. tostring(err))
     end
 end)
