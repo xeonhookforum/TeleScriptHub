@@ -13,7 +13,7 @@ Library.ShowToggleFrameInKeybinds = true
 
 local Window = Library:CreateWindow({
     Title = "XExploit",
-    Footer = "version: beta-dev",
+    Footer = "version: beta-dev", --forever beta
     Icon = 7562374862,
     NotifySide = "Right",
 })
@@ -22,12 +22,13 @@ Library:Notify("Script Executed", 5, 103750838557977)
 
 -- code here
 
-MainTab = Window:AddTab("Main", "user")
+MainTab = Window:AddTab("Player", "user")
+VisualTab = Window:AddTab("Visuals", "eye")
 ScriptTab = Window:AddTab("Scripts", "scroll-text")
 
 TabSett = {
 ["UI Settings"] = Window:AddTab("UI Settings", "settings")
-}
+} -- shity asf
 
 --MainTab
 local MainTabLeft = MainTab:AddLeftGroupbox("Left Groupbox", "cog")
@@ -46,7 +47,7 @@ local JumpPowerToggle = MainTabLeft:AddToggle("JumpPower", {
     Text = "JumpPower Changer",
     Default = false,
     Callback = function(state)
-		JumpPower = state
+		jumpPowerEnabled = state
 	end
 })
 
@@ -71,18 +72,53 @@ MainTabRight:AddInput("JumpPower Value", {
 	Finished = true,
 	Text = "JumpPower",
 	Callback = function(Value)
-		if walkSpeedEnabled then
+		if jumpPowerEnabled then
             game:GetService("Players")
 			game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
 		end
 	end,
 })
 
-WalkSpeedToggle:OnChanged(function(state)
-    print("Toggle state changed to " .. tostring(state))
-end)
-
 -- MainTabEnd
+-- VisualTabStart
+local VisualTabLeft = VisualTab:AddLeftGroupbox("Visuals", "eye")
+local VisualTabRight = VisualTab:AddRightGroupbox("Settings", "settings")
+
+local camera = workspace.CurrentCamera
+local defaultFOV = camera.FieldOfView
+local fovEnabled = false
+local targetFOV = 90
+
+VisualTabLeft:Toggle({
+    Text = "Enable Custom FOV",
+    Default = false,
+    Callback = function(state)
+        fovEnabled = state
+        if state then
+            camera.FieldOfView = targetFOV
+        else
+            camera.FieldOfView = defaultFOV
+        end
+    end
+})
+
+VisualTabRight:Textbox({
+    Text = "FOV Value",
+    Placeholder = tostring(targetFOV),
+    Callback = function(value)
+        local num = tonumber(value)
+        if num then
+            targetFOV = math.clamp(num, 40, 120)
+            if fovEnabled then
+                camera.FieldOfView = targetFOV
+            end
+        else
+            warn("⚠️ Please enter a valid number for FOV.")
+        end
+    end
+})
+
+--VisualTabEnd
 -- ScriptTab
 local ScriptTabLeft = ScriptTab:AddLeftGroupbox("Scripts", "computer")
 local ScriptTabRight = ScriptTab:AddRightGroupbox("In-Script executor", "syringe")
@@ -113,7 +149,7 @@ ScriptTabLeft:AddButton("Execute custom code", function()
     else
 		Library:Notify({
 			Title = "XExploit",
-			Description = "Script fail to execute: " .. tostring(err),
+			Description = "Script fail to execute, check console: " .. tostring(err),
 			Time = 1,
 		})
         warn("Error in code: " .. tostring(err))
