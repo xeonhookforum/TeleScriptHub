@@ -95,7 +95,7 @@ local FovChangerSlider = VisualTabRight:AddSlider("Fov changer vaule", {
 local FovChangerToggle = VisualTabLeft:AddToggle("Change fov", function (Value)
 	if Value == true then
 		FovChangerSlider:OnChanged(function (Value)
-			FovChanger = Value
+			workspace.Camera.FieldOfView = FovChanger
 		end)
 	end
 end)
