@@ -13,7 +13,7 @@ Library.ShowToggleFrameInKeybinds = true
 
 local Window = Library:CreateWindow({
     Title = "XExploit",
-    Footer = "version: beta-dev nigger",
+    Footer = "version: beta-dev",
     Icon = 7562374862,
     NotifySide = "Right",
 })
@@ -114,6 +114,7 @@ end)
 
 --code end
 
+--pasted from explame xd
 -- Addons:
 -- SaveManager (Allows you to have a configuration system)
 -- ThemeManager (Allows you to have a menu theme system)
