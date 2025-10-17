@@ -84,39 +84,21 @@ MainTabRight:AddInput("JumpPower Value", {
 local VisualTabLeft = VisualTab:AddLeftGroupbox("Visuals", "eye")
 local VisualTabRight = VisualTab:AddRightGroupbox("Settings", "settings")
 
-local camera = workspace.CurrentCamera
-local defaultFOV = camera.FieldOfView
-local fovEnabled = false
-local targetFOV = 90
+local FovChanger = 70
 
-VisualTabLeft:Toggle({
-    Text = "Enable Custom FOV",
-    Default = false,
-    Callback = function(state)
-        fovEnabled = state
-        if state then
-            camera.FieldOfView = targetFOV
-        else
-            camera.FieldOfView = defaultFOV
-        end
-    end
+local FovChangerSlider = VisualTabRight:AddSlider("Fov changer vaule", {
+	Default = 70,
+    Min = 0,
+    Max = 135,
 })
 
-VisualTabRight:Textbox({
-    Text = "FOV Value",
-    Placeholder = tostring(targetFOV),
-    Callback = function(value)
-        local num = tonumber(value)
-        if num then
-            targetFOV = math.clamp(num, 40, 120)
-            if fovEnabled then
-                camera.FieldOfView = targetFOV
-            end
-        else
-            warn("⚠️ Please enter a valid number for FOV.")
-        end
-    end
-})
+local FovChangerToggle = VisualTabLeft:AddToggle("Change fov", function (Value)
+	if Value == true then
+		FovChangerSlider:OnChanged(function (Value)
+			FovChanger = Value
+		end)
+	end
+end)
 
 --VisualTabEnd
 -- ScriptTab
