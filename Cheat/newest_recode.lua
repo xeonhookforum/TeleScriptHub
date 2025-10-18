@@ -80,13 +80,99 @@ ScriptTabLeft:AddButton("Execute custom code", function()
 end)
 -- ScriptTabEnd
 -- VerifiedScriptTab
-local VerifiedScriptTabLeft = VerifiedScriptTab:AddLeftGroupbox("Verified Scripts 1", "scroll")
-local VerifiedScriptTabRight = VerifiedScriptTab:AddRightGroupbox("Verified Scripts 2", "scroll")
+local HttpService = game:GetService("HttpService")
+
+-- Replace this with your GitHub raw JSON link:
+local jsonUrl = "https://raw.githubusercontent.com/xeonhookforum/XExploit-roblox/refs/heads/main/GameList/verifiedlist.json"
+
+-- Fetch and decode
+local success, response = pcall(function()
+	return game:HttpGet(jsonUrl)
+end)
+
+if success then
+	local games = HttpService:JSONDecode(response)
+
+	for i, gameData in ipairs(games) do
+		-- Alternate between Left and Right groupboxes
+		local groupbox
+		if i % 2 == 1 then
+			groupbox = VerifiedScriptTab:AddLeftGroupbox(gameData.name, gameData.icon)
+		else
+			groupbox = VerifiedScriptTab:AddRightGroupbox(gameData.name, gameData.icon)
+		end
+
+		-- Add the button
+		groupbox:AddButton("Load", function()
+			local ok, err = pcall(function()
+				loadstring(game:HttpGet(gameData.script_url))()
+				Library:Notify({
+					Title = gameData.name,
+					Description = "Loaded successfly",
+					Time = 1,
+				})
+			end)
+			if not ok then
+				warn("Failed to load script for " .. gameData.name .. ": " .. tostring(err))
+				Library:Notify({
+					Title = gameData.name,
+					Description = "Error: " .. tostring(err),
+					Time = 1,
+				})
+			end
+		end)
+	end
+else
+	warn("Failed to fetch games list from GitHub!")
+end
 
 --VerifiedScriptTabEnd
 --CommunityScriptTab
-local CommunityScriptTabLeft = CommunityScriptTab:AddLeftGroupbox("Community Scripts", "circle-alert")
-local CommunityScriptTabRight = CommunityScriptTab:AddRightGroupbox("Other hubs", "cuboid")
+local HttpService = game:GetService("HttpService")
+
+-- Replace this with your GitHub raw JSON link:
+local jsonUrl = "https://raw.githubusercontent.com/xeonhookforum/XExploit-roblox/refs/heads/main/GameList/community_list.json"
+
+-- Fetch and decode
+local success, response = pcall(function()
+	return game:HttpGet(jsonUrl)
+end)
+
+if success then
+	local games = HttpService:JSONDecode(response)
+
+	for i, gameData in ipairs(games) do
+		-- Alternate between Left and Right groupboxes
+		local groupbox
+		if i % 2 == 1 then
+			groupbox = CommunityScriptTab:AddLeftGroupbox(gameData.name, gameData.icon)
+		else
+			groupbox = CommunityScriptTab:AddRightGroupbox(gameData.name, gameData.icon)
+		end
+
+		-- Add the button
+		groupbox:AddButton("Load", function()
+			local ok, err = pcall(function()
+				loadstring(game:HttpGet(gameData.script_url))()
+				Library:Notify({
+					Title = gameData.name,
+					Description = "Loaded successfly",
+					Time = 1,
+				})
+			end)
+			if not ok then
+				warn("Failed to load script for " .. gameData.name .. ": " .. tostring(err))
+				Library:Notify({
+					Title = gameData.name,
+					Description = "Error: " .. tostring(err),
+					Time = 1,
+				})
+			end
+		end)
+	end
+else
+	warn("Failed to fetch games list from GitHub!")
+end
 
 --CommunityScriptTabEnd
 --// GameScriptsTab dynamic loading from GitHub JSON
