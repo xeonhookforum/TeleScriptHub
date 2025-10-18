@@ -93,7 +93,7 @@ local CommunityScriptTabRight = CommunityScriptTab:AddRightGroupbox("Other hubs"
 local HttpService = game:GetService("HttpService")
 
 -- Replace this with your GitHub raw JSON link:
-local jsonUrl = "https://raw.githubusercontent.com/YourUser/YourRepo/main/games.json"
+local jsonUrl = "https://raw.githubusercontent.com/xeonhookforum/XExploit-roblox/refs/heads/main/GameList/list.json"
 
 -- Fetch and decode
 local success, response = pcall(function()
@@ -116,9 +116,19 @@ if success then
 		groupbox:AddButton("Load", function()
 			local ok, err = pcall(function()
 				loadstring(game:HttpGet(gameData.script_url))()
+				Library:Notify({
+					Title = gameData.name,
+					Description = "Loaded successfly",
+					Time = 1,
+				})
 			end)
 			if not ok then
 				warn("Failed to load script for " .. gameData.name .. ": " .. tostring(err))
+				Library:Notify({
+					Title = gameData.name,
+					Description = "Error: " .. tostring(err),
+					Time = 1,
+				})
 			end
 		end)
 	end
