@@ -2,11 +2,11 @@
   {
     "name": "Infinite yield",
     "icon": "toy-brick",
-    "script_url": "https://raw.githubusercontent.com/YourUser/YourRepo/main/scripts/game3.lua"
+    "script_url": "https://raw.githubusercontent.com/edgeiy/infiniteyield/master/source"
   },
   {
     "name": "Dex",
     "icon": "toy-brick",
-    "script_url": "https://raw.githubusercontent.com/edgeiy/infiniteyield/master/source"
+    "script_url": "https://raw.githubusercontent.com/peyton2465/Dex/master/out.lua"
   }
 ]
