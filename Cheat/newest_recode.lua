@@ -14,11 +14,10 @@ Library.ShowToggleFrameInKeybinds = true
 local Window = Library:CreateWindow({
     Title = "TeleScripts Hub",
     Footer = "version: beta-dev", --forever beta
-    Icon = 131620546733151,
     NotifySide = "Right",
 })
 
-Library:Notify("Script Executed", 5, 16696469190 )
+Library:Notify("Script Executed", 5, 6696469190)
 
 -- code here
 
