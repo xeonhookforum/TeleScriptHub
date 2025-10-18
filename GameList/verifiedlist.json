@@ -1,12 +1,12 @@
 [
   {
-    "name": "Game example 3",
+    "name": "Infinite yield",
     "icon": "toy-brick",
     "script_url": "https://raw.githubusercontent.com/YourUser/YourRepo/main/scripts/game3.lua"
   },
   {
-    "name": "Game example 4",
+    "name": "Dex",
     "icon": "toy-brick",
-    "script_url": "https://raw.githubusercontent.com/YourUser/YourRepo/main/scripts/game4.lua"
+    "script_url": "https://raw.githubusercontent.com/edgeiy/infiniteyield/master/source"
   }
 ]

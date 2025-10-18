@@ -2,7 +2,7 @@
   {
     "name": "Game example 1",
     "icon": "toy-brick",
-    "script_url": "https://raw.githubusercontent.com/YourUser/YourRepo/main/scripts/game1.lua"
+    "script_url": ""
   },
   {
     "name": "Game example 2",
