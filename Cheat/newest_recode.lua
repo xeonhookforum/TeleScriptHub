@@ -86,12 +86,17 @@ if success then
 		end
 
 		if gameData.label and gameData.label ~= "" then
-			groupbox:AddLabel("📌 " .. gameData.label)
+			groupbox:AddLabel("> " .. gameData.label)
 		end
 
 		-- Add the button
 		groupbox:AddButton("Load", function()
 			local ok, err = pcall(function()
+				Library:Notify({
+					Title = gameData.name,
+					Description = "Loading",
+					Time = 1,
+				})
 				loadstring(game:HttpGet(gameData.script_url))()
 				Library:Notify({
 					Title = gameData.name,
@@ -104,7 +109,7 @@ if success then
 				Library:Notify({
 					Title = gameData.name,
 					Description = "Error: " .. tostring(err),
-					Time = 1,
+					Time = 5,
 				})
 			end
 		end)
@@ -138,12 +143,17 @@ if success then
 		end
 
 		if gameData.label and gameData.label ~= "" then
-			groupbox:AddLabel("📌 " .. gameData.label)
+			groupbox:AddLabel("> " .. gameData.label)
 		end
 
 		-- Add the button
 		groupbox:AddButton("Load", function()
 			local ok, err = pcall(function()
+				Library:Notify({
+					Title = gameData.name,
+					Description = "Loading",
+					Time = 1,
+				})
 				loadstring(game:HttpGet(gameData.script_url))()
 				Library:Notify({
 					Title = gameData.name,
@@ -156,7 +166,7 @@ if success then
 				Library:Notify({
 					Title = gameData.name,
 					Description = "Error: " .. tostring(err),
-					Time = 1,
+					Time = 5,
 				})
 			end
 		end)
@@ -190,12 +200,17 @@ if success then
 		end
 
 		if gameData.label and gameData.label ~= "" then
-			groupbox:AddLabel("📌 " .. gameData.label)
+			groupbox:AddLabel("> " .. gameData.label)
 		end
 
 		-- Add the button
 		groupbox:AddButton("Load", function()
 			local ok, err = pcall(function()
+				Library:Notify({
+					Title = gameData.name,
+					Description = "Loading",
+					Time = 1,
+				})
 				loadstring(game:HttpGet(gameData.script_url))()
 				Library:Notify({
 					Title = gameData.name,
@@ -208,7 +223,7 @@ if success then
 				Library:Notify({
 					Title = gameData.name,
 					Description = "Error: " .. tostring(err),
-					Time = 1,
+					Time = 5,
 				})
 			end
 		end)

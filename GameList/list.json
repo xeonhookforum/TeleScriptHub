@@ -1,7 +1,13 @@
 [
   {
+    "name": "Counter Blox",
+    "icon": "flame",
+    "script_url": "https://raw.githubusercontent.com/xeonhookforum/XExploit-roblox/refs/heads/main/Scripts/nullhack.lua",
+    "label": "NullHack"
+  },
+  {
     "name": "No scripts for you? Sumbit at discord",
-    "icon": "toy-brick",
+    "icon": "frown",
     "script_url": "",
     "label": "Discord Tab"
   }
