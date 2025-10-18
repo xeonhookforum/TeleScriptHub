@@ -25,6 +25,8 @@ Library:Notify("Script Executed", 5, 16696469190 )
 ScriptTab = Window:AddTab("Main", "scroll-text")
 VerifiedScriptTab = Window:AddTab("Verified Scripts", "check")
 CommunityScriptTab = Window:AddTab("Community Scripts", "book-user")
+GameScriptsTab = Window:AddTab("Game scripts sorted", "toy-brick")
+DiscordTab = Window:AddTab("Discord", "message-square-more")
 
 TabSett = {
 ["UI Settings"] = Window:AddTab("UI Settings", "settings")
@@ -76,10 +78,81 @@ ScriptTabLeft:AddButton("Execute custom code", function()
         warn("Error in code: " .. tostring(err))
     end
 end)
+-- ScriptTabEnd
+-- VerifiedScriptTab
+local VerifiedScriptTabLeft = VerifiedScriptTab:AddLeftGroupbox("Verified Scripts 1", "scroll")
+local VerifiedScriptTabRight = VerifiedScriptTab:AddRightGroupbox("Verified Scripts 2", "scroll")
+
+--VerifiedScriptTabEnd
+--CommunityScriptTab
+local CommunityScriptTabLeft = CommunityScriptTab:AddLeftGroupbox("Community Scripts", "circle-alert")
+local CommunityScriptTabRight = CommunityScriptTab:AddRightGroupbox("Other hubs", "cuboid")
+
+--CommunityScriptTabEnd
+--// GameScriptsTab dynamic loading from GitHub JSON
+local HttpService = game:GetService("HttpService")
+
+-- Replace this with your GitHub raw JSON link:
+local jsonUrl = "https://raw.githubusercontent.com/YourUser/YourRepo/main/games.json"
+
+-- Fetch and decode
+local success, response = pcall(function()
+	return game:HttpGet(jsonUrl)
+end)
+
+if success then
+	local games = HttpService:JSONDecode(response)
+
+	for i, gameData in ipairs(games) do
+		-- Alternate between Left and Right groupboxes
+		local groupbox
+		if i % 2 == 1 then
+			groupbox = GameScriptsTab:AddLeftGroupbox(gameData.name, gameData.icon)
+		else
+			groupbox = GameScriptsTab:AddRightGroupbox(gameData.name, gameData.icon)
+		end
+
+		-- Add the button
+		groupbox:AddButton("Load", function()
+			local ok, err = pcall(function()
+				loadstring(game:HttpGet(gameData.script_url))()
+			end)
+			if not ok then
+				warn("Failed to load script for " .. gameData.name .. ": " .. tostring(err))
+			end
+		end)
+	end
+else
+	warn("Failed to fetch games list from GitHub!")
+end
+
+--// GameScriptsTabEnd
 
 
+-- --GameScriptsTab old
+-- local GameScriptsTabLeft = GameScriptsTab:AddLeftGroupbox("Game explame 1", "toy-brick")
+-- local Script = GameScriptsTabLeft:AddButton("Load", function ()
+-- 	loadstring(Game:HttpGet("link to script to game"))
+-- end)
+-- local GameScriptsTabRight = GameScriptsTab:AddRightGroupbox("Game explame 2", "toy-brick")
+-- local Script = GameScriptsTabRight:AddButton("Load", function ()
+-- 	loadstring(Game:HttpGet("link to script to game"))
+-- end)
+-- local GameScriptsTabLeft = GameScriptsTab:AddLeftGroupbox("Game explame 3", "toy-brick")
+-- local Script = GameScriptsTabLeft:AddButton("Load", function ()
+-- 	loadstring(Game:HttpGet("link to script to game"))
+-- end)
+-- local GameScriptsTabRight = GameScriptsTab:AddRightGroupbox("Game explame 4", "toy-brick")
+-- local Script = GameScriptsTabRight:AddButton("Load", function ()
+-- 	loadstring(Game:HttpGet("link to script to game"))
+-- end)
+
+-- --GameScriptsTabEnd old
 
 --code end
+local DiscordTabLeft = DiscordTab:AddLeftGroupbox("Discord", "message-square-more")
+local DiscordLink = DiscordTabLeft:AddLabel("Discord here", false)
+
 
 --pasted from explame xd
 -- Addons:
