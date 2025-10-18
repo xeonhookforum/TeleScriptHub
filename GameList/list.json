@@ -2,6 +2,7 @@
   {
     "name": "No scripts for you? Sumbit at discord",
     "icon": "toy-brick",
-    "script_url": ""
+    "script_url": "",
+    "label": "Discord Tab"
   }
 ]

@@ -85,6 +85,10 @@ if success then
 			groupbox = VerifiedScriptTab:AddRightGroupbox(gameData.name, gameData.icon)
 		end
 
+		if gameData.label and gameData.label ~= "" then
+			groupbox:AddLabel("📌 " .. gameData.label)
+		end
+
 		-- Add the button
 		groupbox:AddButton("Load", function()
 			local ok, err = pcall(function()
@@ -133,6 +137,10 @@ if success then
 			groupbox = CommunityScriptTab:AddRightGroupbox(gameData.name, gameData.icon)
 		end
 
+		if gameData.label and gameData.label ~= "" then
+			groupbox:AddLabel("📌 " .. gameData.label)
+		end
+
 		-- Add the button
 		groupbox:AddButton("Load", function()
 			local ok, err = pcall(function()
@@ -179,6 +187,10 @@ if success then
 			groupbox = GameScriptsTab:AddLeftGroupbox(gameData.name, gameData.icon)
 		else
 			groupbox = GameScriptsTab:AddRightGroupbox(gameData.name, gameData.icon)
+		end
+
+		if gameData.label and gameData.label ~= "" then
+			groupbox:AddLabel("📌 " .. gameData.label)
 		end
 
 		-- Add the button
