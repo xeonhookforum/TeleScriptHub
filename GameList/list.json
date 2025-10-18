@@ -1,22 +1,7 @@
 [
   {
-    "name": "Game example 1",
+    "name": "No scripts for you? Sumbit at discord",
     "icon": "toy-brick",
-    "script_url": "https://raw.githubusercontent.com/YourUser/YourRepo/main/scripts/game1.lua"
-  },
-  {
-    "name": "Game example 2",
-    "icon": "toy-brick",
-    "script_url": "https://raw.githubusercontent.com/YourUser/YourRepo/main/scripts/game2.lua"
-  },
-  {
-    "name": "Game example 3",
-    "icon": "toy-brick",
-    "script_url": "https://raw.githubusercontent.com/YourUser/YourRepo/main/scripts/game3.lua"
-  },
-  {
-    "name": "Game example 4",
-    "icon": "toy-brick",
-    "script_url": "https://raw.githubusercontent.com/YourUser/YourRepo/main/scripts/game4.lua"
+    "script_url": ""
   }
 ]

@@ -36,23 +36,6 @@ TabSett = {
 local ScriptTabLeft = ScriptTab:AddLeftGroupbox("Scripts", "computer")
 local ScriptTabRight = ScriptTab:AddRightGroupbox("In-Script executor", "syringe")
 
-ScriptTabLeft:AddButton("Load DeX", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/peyton2465/Dex/master/out.lua"))()
-	Library:Notify({
-			Title = "XExploit",
-			Description = "Script executed!",
-			Time = 1,
-		})
-end)
-
-ScriptTabLeft:AddButton("Load Infinite yield", function()
-    loadstring(Game:HttpGet("https://raw.githubusercontent.com/edgeiy/infiniteyield/master/source"))()
-	Library:Notify({
-			Title = "XExploit",
-			Description = "Script executed!",
-			Time = 1,
-		})
-end)
 local script_execute = ""
 ScriptTabRight:AddInput("Script Code", { 
 	Callback = function(Value)
@@ -64,14 +47,14 @@ ScriptTabLeft:AddButton("Execute custom code", function()
     local func, err = loadstring(script_execute)
     if func then
 		Library:Notify({
-			Title = "XExploit",
+			Title = "Script executoroplik ",
 			Description = "Script executed!",
 			Time = 1,
 		})
         func()
     else
 		Library:Notify({
-			Title = "XExploit",
+			Title = "Script executor",
 			Description = "Script fail to execute, check console: " .. tostring(err),
 			Time = 1,
 		})
