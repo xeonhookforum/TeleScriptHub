@@ -12,13 +12,13 @@ Library.ForceCheckbox = false -- Forces AddToggle to AddCheckbox
 Library.ShowToggleFrameInKeybinds = true
 
 local Window = Library:CreateWindow({
-    Title = "XExploit",
+    Title = "TeleScripts Hub",
     Footer = "version: beta-dev", --forever beta
-    Icon = 7562374862,
+    Icon = 131620546733151,
     NotifySide = "Right",
 })
 
-Library:Notify("Script Executed", 5, 103750838557977)
+Library:Notify("Script Executed", 5, 16696469190 )
 
 -- code here
 
@@ -30,75 +30,26 @@ TabSett = {
 ["UI Settings"] = Window:AddTab("UI Settings", "settings")
 } -- shity asf
 
---MainTab
-local MainTabLeft = MainTab:AddLeftGroupbox("Left Groupbox", "cog")
-local MainTabRight = MainTab:AddRightGroupbox("Right Groupbox", "wrench")
-local walkSpeedEnabled = false
-local jumpPowerEnabled = false
-local WalkSpeedToggle = MainTabLeft:AddToggle("WalkSpeed", {
-    Text = "WalkSpeed Changer",
-    Default = false,
-    Callback = function(state)
-		walkSpeedEnabled = state
-	end
-})
-
-local JumpPowerToggle = MainTabLeft:AddToggle("JumpPower", {
-    Text = "JumpPower Changer",
-    Default = false,
-    Callback = function(state)
-		jumpPowerEnabled = state
-	end
-})
-
-
-
-MainTabRight:AddInput("WalkSpeed Value", {
-	Default = "0",
-	Numeric = true,
-	Finished = true,
-	Text = "WalkSpeed",
-	Callback = function(Value)
-		if walkSpeedEnabled then
-            game:GetService("Players")
-			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
-		end
-	end,
-})
-
-MainTabRight:AddInput("JumpPower Value", {
-	Default = "0",
-	Numeric = true,
-	Finished = true,
-	Text = "JumpPower",
-	Callback = function(Value)
-		if jumpPowerEnabled then
-            game:GetService("Players")
-			game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
-		end
-	end,
-})
-
-local Label = MainTabLeft:AddLabel("IDK what to add else", false)
-local Label = MainTabRight:AddLabel("IDK what to add else", false)
-
--- MainTabEnd
--- VisualTabStart
-local VisualTabLeft = VisualTab:AddLeftGroupbox("Visuals", "eye")
-local VisualTabRight = VisualTab:AddRightGroupbox("Settings", "settings")
-local Label = VisualTabLeft:AddLabel("no. not now", false)
-
---VisualTabEnd
 -- ScriptTab
 local ScriptTabLeft = ScriptTab:AddLeftGroupbox("Scripts", "computer")
 local ScriptTabRight = ScriptTab:AddRightGroupbox("In-Script executor", "syringe")
 
 ScriptTabLeft:AddButton("Load DeX", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/peyton2465/Dex/master/out.lua"))()
+	Library:Notify({
+			Title = "XExploit",
+			Description = "Script executed!",
+			Time = 1,
+		})
 end)
 
 ScriptTabLeft:AddButton("Load Infinite yield", function()
     loadstring(Game:HttpGet("https://raw.githubusercontent.com/edgeiy/infiniteyield/master/source"))()
+	Library:Notify({
+			Title = "XExploit",
+			Description = "Script executed!",
+			Time = 1,
+		})
 end)
 local script_execute = ""
 ScriptTabRight:AddInput("Script Code", { 
