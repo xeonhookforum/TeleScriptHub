@@ -22,9 +22,9 @@ Library:Notify("Script Executed", 5, 16696469190 )
 
 -- code here
 
-MainTab = Window:AddTab("Player", "user")
-VisualTab = Window:AddTab("Visuals", "eye")
-ScriptTab = Window:AddTab("Scripts", "scroll-text")
+ScriptTab = Window:AddTab("Main", "scroll-text")
+VerifiedScriptTab = Window:AddTab("Verified Scripts", "check")
+CommunityScriptTab = Window:AddTab("Community Scripts", "book-user")
 
 TabSett = {
 ["UI Settings"] = Window:AddTab("UI Settings", "settings")
