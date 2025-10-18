@@ -86,6 +86,7 @@ local Label = MainTabRight:AddLabel("IDK what to add else", false)
 -- VisualTabStart
 local VisualTabLeft = VisualTab:AddLeftGroupbox("Visuals", "eye")
 local VisualTabRight = VisualTab:AddRightGroupbox("Settings", "settings")
+local Label = VisualTabLeft:AddLabel("no. not now", false)
 
 --VisualTabEnd
 -- ScriptTab
