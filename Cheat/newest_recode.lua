@@ -14,7 +14,7 @@ Library.ShowToggleFrameInKeybinds = true
 local Window = Library:CreateWindow({
     Title = "TeleScripts Hub",
     Footer = "version: beta-dev", --forever beta
-    NotifySide = "Right"
+    NotifySide = "Right",
 })
 
 Library:Notify("Script Executed", 5, 6696469190)
