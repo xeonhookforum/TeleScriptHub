@@ -65,7 +65,7 @@ end)
 local HttpService = game:GetService("HttpService")
 
 -- Replace this with your GitHub raw JSON link:
-local jsonUrl = "https://raw.githubusercontent.com/xeonhookforum/XExploit-roblox/refs/heads/main/GameList/verifiedlist.json"
+local jsonUrl = "https://raw.githubusercontent.com/xeonhookforum/TeleScriptHub/refs/heads/main/GameList/verifiedlist.json"
 
 -- Fetch and decode
 local success, response = pcall(function()
@@ -122,7 +122,7 @@ end
 local HttpService = game:GetService("HttpService")
 
 -- Replace this with your GitHub raw JSON link:
-local jsonUrl = "https://raw.githubusercontent.com/xeonhookforum/XExploit-roblox/refs/heads/main/GameList/community_list.json"
+local jsonUrl = "https://raw.githubusercontent.com/xeonhookforum/TeleScriptHub/refs/heads/main/GameList/community_list.json"
 
 -- Fetch and decode
 local success, response = pcall(function()
@@ -179,7 +179,7 @@ end
 local HttpService = game:GetService("HttpService")
 
 -- Replace this with your GitHub raw JSON link:
-local jsonUrl = "https://raw.githubusercontent.com/xeonhookforum/XExploit-roblox/refs/heads/main/GameList/list.json"
+local jsonUrl = "https://raw.githubusercontent.com/xeonhookforum/TeleScriptHub/refs/heads/main/GameList/list.json"
 
 -- Fetch and decode
 local success, response = pcall(function()
