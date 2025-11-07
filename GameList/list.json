@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Counter Blox",
+    "icon": "circle-check",
+    "script_url": "https://raw.githubusercontent.com/xeonhookforum/XExploit-roblox/refs/heads/main/Scripts/nullhack.lua",
+    "label": "NullHack"
+  },
+  {
+    "name": "Z3US",
+    "icon": "circle-question-mark",
+    "script_url": "https://raw.githubusercontent.com/blackowl1231/Z3US/refs/heads/main/main.lua",
+    "label": "Hub for games with guns"
+  },
+  {
+    "name": "Doors",
+    "icon": "circle-question-mark",
+    "script_url": "https://astral.gay/loader.luau",
+    "label": "Astral"
+  },
+  {
+    "name": "Operation One",
+    "icon": "code",
+    "script_url": "https://raw.githubusercontent.com/xeonhookforum/XExploit-roblox/refs/heads/main/Scripts/operation_one_esp.lua",
+    "label": "ttokenn - Open source"
+  },
+  {
+    "name": "No scripts for you? Sumbit at discord",
+    "icon": "frown",
+    "script_url": "",
+    "label": "Discord Tab"
+  }
+]

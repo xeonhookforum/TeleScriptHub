@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Infinite yield",
+    "icon": "square-chevron-right",
+    "script_url": "https://raw.githubusercontent.com/edgeiy/infiniteyield/master/source",
+    "label": "Working / Good"
+  },
+  {
+    "name": "Dex",
+    "icon": "folder-code",
+    "script_url": "https://raw.githubusercontent.com/peyton2465/Dex/master/out.lua",
+    "label": "Working / Old"
+  },
+  {
+    "name": "mspaint.cc",
+    "icon": "circle-dollar-sign",
+    "script_url": "https://raw.githubusercontent.com/xeonhookforum/XExploit-roblox/refs/heads/main/Scripts/mspaint.lua",
+    "label": "Working / Paid"
+  },
+  {
+    "name": "No scripts for you? Sumbit at discord",
+    "icon": "frown",
+    "script_url": "",
+    "label": "Discord Tab"
+  }
+]
