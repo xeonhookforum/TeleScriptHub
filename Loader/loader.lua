@@ -20,10 +20,7 @@ wait(1)
 if usedev == true then
     wait(1)
     warn("beta-dev")
-    if IsTeleScriptRunning == true and debug == false then
-        error("Only one hub at time can be working! If more executed it could break whole hub!")
-    else
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/xeonhookforum/TeleScriptHub/refs/heads/main/Dev/newest_recode.lua"))()
+    error("Haha no public dev for you >:3")
     end
 else
     wait(1)
